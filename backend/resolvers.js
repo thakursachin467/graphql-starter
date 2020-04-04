@@ -1,8 +1,11 @@
 const DAILY_TASKS = require("./fake_data");
 const resolvers = {
   Query: {
-    fetchTasks: (parent, args, context, info) => {
+    fetchTask: (parent, args, context, info) => {
       return DAILY_TASKS[args.input.id];
+    },
+    fetchTasks: (parent, args, context, info) => {
+      return DAILY_TASKS;
     }
   },
   Mutation: {
@@ -27,7 +30,7 @@ const resolvers = {
         return task.id == id;
       });
       if (name) {
-        updateTask[0].name = name;
+        updateTask[0].task = task;
       }
       if (completed) {
         updateTask[0].completed = completed;

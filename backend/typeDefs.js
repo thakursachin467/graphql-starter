@@ -23,12 +23,12 @@ const typeDefs = gql`
   }
 
   type Query {
-    fetchTasks(filter: fetchTaskFilter): Tasks
+    fetchTask(filter: fetchTaskFilter): Tasks
+    fetchTasks: [Tasks]
   }
 
   type Mutation {
     addTask(input: addTaskInput): Tasks
-
     updateTask(input: updateTaskInput): Tasks
   }
 `;
